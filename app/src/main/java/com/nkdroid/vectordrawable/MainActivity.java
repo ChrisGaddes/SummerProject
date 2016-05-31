@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-/**
- * Created by cagad on 5/31/2016.
- */
-
 public class MainActivity extends Activity {
 
 
@@ -17,8 +13,9 @@ public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.button_demo_activity);
+        setContentView(R.layout.activity_main);
 
         btnDemo = (Button) findViewById(R.id.btn_1);
 
