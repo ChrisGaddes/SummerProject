@@ -1,6 +1,7 @@
 package com.chrisgaddes.freebodydiagram;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -26,10 +27,31 @@ public class MainActivity extends Activity implements View.OnClickListener {
     boolean isBtnArrowNorthClicked = false;
     boolean isBtnArrowSouthClicked = false;
 
+//    // started here adding new button
+    public Button btn_load_main_screen;
+
+    public void init(){
+        btn_load_main_screen = (Button) findViewById(R.id.btn_load_main_screen);
+        btn_load_main_screen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent toy = new Intent(MainActivity.this,SecondActivity.class);
+
+            }
+        });
+
+
+    }
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // starts init
+        //init();
 
         // find View-elements
         arrow_east = (Button) findViewById(R.id.btn_1);
