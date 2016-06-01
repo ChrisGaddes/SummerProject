@@ -1,4 +1,4 @@
-package com.nkdroid.vectordrawable;
+package com.chrisgaddes.freebodydiagram;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

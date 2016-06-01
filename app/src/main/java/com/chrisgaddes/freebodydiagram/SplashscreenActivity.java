@@ -1,4 +1,4 @@
-package com.nkdroid.vectordrawable;
+package com.chrisgaddes.freebodydiagram;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

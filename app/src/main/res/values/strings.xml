@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">Android Vector Drawable Example</string>
+    <string name="app_name">Practice FBD</string>
     <string name="title_activity_splashscreen">SplashscreenActivity</string>
-    <string name="str_title_splashscreen_free_body_diagram">Free Body Diagram Trainer</string>
+    <string name="str_title_splashscreen_free_body_diagram">Practice Free Body Diagrams</string>
     <string name="str_button_start">Start</string>
 </resources>
