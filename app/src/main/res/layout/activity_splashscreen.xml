@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.nkdroid.vectordrawable.SplashscreenActivity">
+
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/txt_Title_Splashcreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerInParent="true"
+            android:gravity="center_horizontal"
+            android:padding="60dp"
+            android:text="@string/str_title_splashscreen_free_body_diagram"
+            android:textSize="30sp" />
+
+        <ImageView
+            android:contentDescription="Auburn Logo"
+            android:id="@+id/image_auburn_logo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_below="@id/txt_Title_Splashcreen"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/ic_android_logo" />
+
+        <Button
+            android:id="@+id/btn_load_main_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/image_auburn_logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:text="@string/str_button_start"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
+</RelativeLayout>

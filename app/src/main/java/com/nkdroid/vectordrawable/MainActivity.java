@@ -26,8 +26,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     boolean isBtnArrowNorthClicked = false;
     boolean isBtnArrowSouthClicked = false;
 
-
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +48,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         // define the button that invoked the listener by id
-
 
         switch (v.getId()) {
             case R.id.btn_1:
