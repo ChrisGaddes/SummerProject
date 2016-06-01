@@ -68,6 +68,14 @@
                     android:textSize="0sp" />
             </RelativeLayout>
 
+            <TextView
+                android:id="@+id/log_arrow_west"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+
+
+
         </RelativeLayout>
 
         <ImageView
