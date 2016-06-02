@@ -13,13 +13,17 @@
         android:theme="@style/ThemeOverlay.AppCompat.ActionBar" />
 
     <RelativeLayout
-
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/my_toolbar"
         android:layout_margin="30dp"
         >
 
+        <Button
+            android:id="@+id/btn_load_main_screen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"

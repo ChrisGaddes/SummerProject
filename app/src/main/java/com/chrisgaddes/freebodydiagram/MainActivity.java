@@ -30,28 +30,29 @@ public class MainActivity extends Activity implements View.OnClickListener {
 //    // started here adding new button
     public Button btn_load_main_screen;
 
+    // create the method
     public void init(){
         btn_load_main_screen = (Button) findViewById(R.id.btn_load_main_screen);
         btn_load_main_screen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent toy = new Intent(MainActivity.this,SecondActivity.class);
 
+                startActivity(toy);
             }
         });
 
 
     }
 
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         // starts init
-        //init();
+        init();
 
         // find View-elements
         arrow_east = (Button) findViewById(R.id.btn_1);
