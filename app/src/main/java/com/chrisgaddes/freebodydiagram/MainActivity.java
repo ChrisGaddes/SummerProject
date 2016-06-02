@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
@@ -90,13 +89,11 @@ public class MainActivity extends Activity implements View.OnClickListener {
         switch (v.getId()) {
             case R.id.btn_1:
                 //arrow_west.setText("OK button was clicked");
-                Toast.makeText(MainActivity.this, "btn1", Toast.LENGTH_SHORT).show();
-                                int resId1 = isBtnArrowEastClicked ? R.drawable.btn_unpressed : R.drawable.btn_pressed_east;
+                int resId1 = isBtnArrowEastClicked ? R.drawable.btn_unpressed : R.drawable.btn_pressed_east;
                 arrow_east.setBackgroundResource(resId1); // sets background
                 isBtnArrowEastClicked = !isBtnArrowEastClicked; // cycles arrow and box
                 break;
             case R.id.btn_2:
-                Toast.makeText(MainActivity.this, "btn2", Toast.LENGTH_SHORT).show();
                 int resId2 = isBtnArrowWestClicked ? R.drawable.btn_unpressed : R.drawable.btn_pressed_west;
                 arrow_west.setBackgroundResource(resId2); // sets background
                 isBtnArrowWestClicked = !isBtnArrowWestClicked; // cycles arrow and box
