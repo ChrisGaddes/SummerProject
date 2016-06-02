@@ -10,7 +10,6 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity implements View.OnClickListener {
 
-    private static final String TAG = "CAG"; //TODO Figure out what tag is
     Toolbar mToolbar;
     Button mBtnAdd;
     boolean isClicked;
@@ -27,7 +26,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
     boolean isBtnArrowNorthClicked = false;
     boolean isBtnArrowSouthClicked = false;
 
-//    // started here adding new button
+    // started here adding new button
     public Button btn_load_main_screen;
 
     // create the method
@@ -41,9 +40,24 @@ public class MainActivity extends Activity implements View.OnClickListener {
                 startActivity(toy);
             }
         });
-
-
     }
+
+//    public Button btn_load_second_screen;
+//
+//    // create the method
+//    public void init2(){
+//        btn_load_second_screen=(Button)findViewById(R.id.btn_load_second_screen);
+//        btn_load_second_screen.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v){
+//                Intent toy=new Intent(MainActivity.this,SecondActivity.class);
+//
+//                startActivity(toy);
+//            }
+//        });
+//    }
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +67,7 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         // starts init
         init();
+        //init2();
 
         // find View-elements
         arrow_east = (Button) findViewById(R.id.btn_1);
