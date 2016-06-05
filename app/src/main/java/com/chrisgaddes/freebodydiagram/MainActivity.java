@@ -14,9 +14,9 @@ import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private Button btn_test;
+    private Button btn_initiate_popup;
     private PopupWindow popupWindow;
-    private RelativeLayout relativeLayout;
+    private RelativeLayout relativeLayoutMainActivity;
 
     // layoutInflator allows loading a new layout inside our popped window
     private LayoutInflater layoutInflater;
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     // started here adding new button
     public Button btn_load_main_screen;
+
 
     // create the method
     public void init() {
@@ -71,12 +72,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         arrow_south.setOnClickListener(this);
 
 
-        btn_test = (Button) findViewById(R.id.btn_load_main_screen);
-        relativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_activity_main);
+        btn_initiate_popup = (Button) findViewById(R.id.btn_initiate_popup);
+        relativeLayoutMainActivity = (RelativeLayout) findViewById(R.id.relative_layout_activity_main);
 
-        // listens for touch on button btn_test
+        // listens for touch on button btn_initiate_popup
 
-        btn_test.setOnTouchListener(new View.OnTouchListener() {
+        btn_initiate_popup.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
 
@@ -84,16 +85,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int width_popup = 500; // width of popup
                 int height_popup = 500; // height of popup
                 int pos[] = new int[2];
-                btn_test.getLocationOnScreen(pos); // get location of pressed button
+                btn_initiate_popup.getLocationOnScreen(pos); // get location of pressed button
                 int x1 = pos[0], y1 = pos[1];
-                int loc_popup_x = x1 + btn_test.getWidth() / 2 - width_popup / 2;
-                int loc_popup_y = y1 + btn_test.getHeight() / 2 - height_popup / 2;
+                int loc_popup_x = x1 + btn_initiate_popup.getWidth() / 2 - width_popup / 2;
+                int loc_popup_y = y1 + btn_initiate_popup.getHeight() / 2 - height_popup / 2;
 
                 layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
                 ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.activity_popup_buttons, null);
 
                 popupWindow = new PopupWindow(container, width_popup, height_popup, true);
-                popupWindow.showAtLocation(relativeLayout, Gravity.NO_GRAVITY, loc_popup_x, loc_popup_y);
+                popupWindow.showAtLocation(relativeLayoutMainActivity, Gravity.NO_GRAVITY, loc_popup_x, loc_popup_y);
 
                 popupWindow.setFocusable(false);
                 popupWindow.setOutsideTouchable(true);

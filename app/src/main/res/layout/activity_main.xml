@@ -13,10 +13,18 @@
         >
 
         <Button
-            android:id="@+id/btn_load_main_screen"
+            android:id="@+id/btn_initiate_popup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Next"
+            android:text="Popup"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btn_load_main_screen"
+            android:layout_below="@+id/btn_initiate_popup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Next screen"
             android:textAllCaps="false"/>
 
         <RelativeLayout
