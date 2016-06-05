@@ -1,17 +1,25 @@
 package com.chrisgaddes.freebodydiagram;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 
-public class MainActivity extends Activity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Toolbar mToolbar;
-    Button mBtnAdd;
-    boolean isClicked;
+    private Button btn_test;
+    private PopupWindow popupWindow;
+    private RelativeLayout relativeLayout;
+
+    // layoutInflator allows loading a new layout inside our popped window
+    private LayoutInflater layoutInflater;
 
     // initializes arrow buttons
     Button arrow_west;
@@ -29,34 +37,17 @@ public class MainActivity extends Activity implements View.OnClickListener {
     public Button btn_load_main_screen;
 
     // create the method
-    public void init(){
+    public void init() {
         btn_load_main_screen = (Button) findViewById(R.id.btn_load_main_screen);
         btn_load_main_screen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent toy = new Intent(MainActivity.this,SecondActivity.class);
+                Intent toy = new Intent(MainActivity.this, SecondActivity.class);
 
                 startActivity(toy);
             }
         });
     }
-
-//    public Button btn_load_second_screen;
-//
-//    // create the method
-//    public void init2(){
-//        btn_load_second_screen=(Button)findViewById(R.id.btn_load_second_screen);
-//        btn_load_second_screen.setOnClickListener(new View.OnClickListener(){
-//            @Override
-//            public void onClick(View v){
-//                Intent toy=new Intent(MainActivity.this,SecondActivity.class);
-//
-//                startActivity(toy);
-//            }
-//        });
-//    }
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,7 +57,6 @@ public class MainActivity extends Activity implements View.OnClickListener {
 
         // starts init
         init();
-        //init2();
 
         // find View-elements
         arrow_east = (Button) findViewById(R.id.btn_1);
@@ -79,6 +69,51 @@ public class MainActivity extends Activity implements View.OnClickListener {
         arrow_north.setOnClickListener(this);
         arrow_east.setOnClickListener(this);
         arrow_south.setOnClickListener(this);
+
+
+        btn_test = (Button) findViewById(R.id.btn_load_main_screen);
+        relativeLayout = (RelativeLayout) findViewById(R.id.relative_layout_activity_main);
+
+        // listens for touch on button btn_test
+
+        btn_test.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                // gets center coordinates of button and matches it to center of popup
+                int width_popup = 500; // width of popup
+                int height_popup = 500; // height of popup
+                int pos[] = new int[2];
+                btn_test.getLocationOnScreen(pos); // get location of pressed button
+                int x1 = pos[0], y1 = pos[1];
+                int loc_popup_x = x1 + btn_test.getWidth() / 2 - width_popup / 2;
+                int loc_popup_y = y1 + btn_test.getHeight() / 2 - height_popup / 2;
+
+                layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.activity_popup_buttons, null);
+
+                popupWindow = new PopupWindow(container, width_popup, height_popup, true);
+                popupWindow.showAtLocation(relativeLayout, Gravity.NO_GRAVITY, loc_popup_x, loc_popup_y);
+
+                popupWindow.setFocusable(false);
+                popupWindow.setOutsideTouchable(true);
+
+                // setBackgroundDrawable(Drawable background)
+                // Specifies the background drawable for this popup window.
+
+
+                container.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View view, MotionEvent motionEvent) {
+                        popupWindow.dismiss();
+                        return true;
+                    }
+                });
+                return false;
+            }
+        });
+
+
     }
 
 
